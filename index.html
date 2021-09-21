@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Meteo App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class='container' id="root" :class='this.background'>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm input-group mt-5">
+                    <input type="text" class="form-control" @keypress=' fetchWeather' v-model='search'
+                        placeholder="Digita la tua città">
+                    <button class="btn btn-outline-danger" @click='deleteSearch' type="button">X</button>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm">
+                    <h4 class="date">{{ date() }}</h4>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+        <div class="container mt-2 meteo" v-if="typeof weather.main != 'undefined'">
+            <div class="row">
+                <div class="col-sm col-md"></div>
+                <div class='col-sm centrale-info'>
+                    <h5 class="city">{{ weather.name }}, {{ weather.sys.country }}</h5>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-11 col-md ">
+                                <h1 class="temp"> {{ temp() }}
+                                    °C</h1>
+                                    <h5 class="weather mt-1">{{ weather.weather[0].main }}</h5>
+                                    <h5 class="weather mt-1">Umidità: {{ weather.main.humidity }} %</h5>
+                                    <h5 class="weather mt-1">Livello dal mare: {{ weather.main.sea_level || 0 }} m</h5>
+                                    <h5 class="weather mt-1">Velocità del vento: {{ weather.wind.speed }} km/h</h5>
+                                    <h5 class="weather mt-1">Latitudine: {{ weather.coord.lat }},<br> Longitudine: {{ weather.coord.lon
+                                        }}
+                                    </h5>
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                    </div>                   
+                </div>
+                <div class="col-sm col-md"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm col-md mt-4">
+                    <h5 class="mess_img">{{ imageBackground() }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

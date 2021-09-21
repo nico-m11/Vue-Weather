@@ -1,0 +1,76 @@
+#root {
+  font-family: "Roboto", sans-serif;
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 100;
+  height: 100vh;
+}
+
+#root.clear {
+  background-image: url(../img/Clear.jpg);
+}
+
+#root.snow {
+  background-image: url(../img/Snow.jpg);
+}
+
+#root.clouds {
+  background-image: url(../img/Cloud_3.jpg);
+}
+
+#root.rain {
+  background-image: url(../img/Rain.jpg);
+}
+
+#root.haze {
+  background-image: url(../img/haze.jpg);
+}
+
+.meteo {
+  width: 20%;
+  height: 50%;
+  margin-top: 5%;
+}
+
+.centrale-info {
+  border: 1px solid black;
+  border-radius: 25%;
+  box-shadow: 0px 10px 13px -7px black, 4px 5px 31px 22px lightgray;
+  background-color: #caf0f8;
+  font-family: "Roboto", sans-serif;
+  color: Black;
+}
+
+.city {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.temp {
+  text-align: center;
+  margin-top: 2.5%;
+  font-family: "Roboto", sans-serif;
+}
+
+.weather {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.date {
+  text-align: center;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: lightgoldenrodyellow;
+}
+
+.mess_img {
+  text-align: center;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: lightgoldenrodyellow;
+  height: auto;
+}
